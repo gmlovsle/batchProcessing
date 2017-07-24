@@ -1,12 +1,12 @@
-¹ØÓÚÔËÐÐÅú´¦ÀíÓÐºÚ¿òµÄÎÊÌâ,ÏëÈ¥³ýºÚ¿òÓÐÈý¸ö·½·¨.
-µÚÒ»¸ö:
+æ‰¹å¤„ç†æœ‰é»‘æ¡†çš„é—®é¢˜,æƒ³åŽ»é™¤é»‘æ¡†æœ‰ä¸‰ä¸ªæ–¹æ³•.
+ç¬¬ä¸€ä¸ª:
 set ws=wscript.createobject("wscript.shell")
-ws.Run "cmd /c copy \\192.168.0.249\ÍøÂçÓÎÏ·\±ÚÖ½Í¬²½\Î¬»¤Í¨µÀ.bat C:\ /y",0,1
-ws.Run "c:\Î¬»¤Í¨µÀ.bat",0,1
+ws.Run "cmd /c copy \\192.168.0.249\ç½‘ç»œæ¸¸æˆ\å£çº¸åŒæ­¥\ç»´æŠ¤é€šé“.bat C:\ /y",0,1
+ws.Run "c:\ç»´æŠ¤é€šé“.bat",0,1
 wscript.sleep 1000
 WScript.quit
-ÕâÊÇÍ¨¹ýVBS½«Ô¶³Ì·þÎñÆ÷ÉÏµÄ"Î¬»¤Í¨µÀ.bat"¸´ÖÆµ½±¾µØCÅÌ.ÔËÐÐºóÑÓÊ±Ò»ÃëÍË³ö
-µÚ¶þ¸ö:
+è¿™æ˜¯é€šè¿‡VBSå°†è¿œç¨‹æœåŠ¡å™¨ä¸Šçš„"ç»´æŠ¤é€šé“.bat"å¤åˆ¶åˆ°æœ¬åœ°Cç›˜.è¿è¡ŒåŽå»¶æ—¶ä¸€ç§’é€€å‡º
+ç¬¬äºŒä¸ª:
 @echo off
 if "%1" neq "Orz" (
 &gt;"%temp%\tmp.vbs" echo set WshShell = WScript.CreateObject^(^"WScript.Shell^"^)
@@ -14,37 +14,37 @@ if "%1" neq "Orz" (
 start /d "%temp%" tmp.vbs"
 exit
 )
-::´ÓÕâÀï¿ªÊ¼£¬¾ÍÊÇÄãµÄÅú´¦Àí´úÂëÁË£¬DOSºÚ¿òÒ»ÉÁ¶ø¹ý£¬×ªµ½ºóÌ¨ÔËÐÐÁË
+::ä»Žè¿™é‡Œå¼€å§‹ï¼Œå°±æ˜¯ä½ çš„æ‰¹å¤„ç†ä»£ç äº†ï¼ŒDOSé»‘æ¡†ä¸€é—ªè€Œè¿‡ï¼Œè½¬åˆ°åŽå°è¿è¡Œäº†
 pause
-::Äã»áÔÚÈÎÎñ¹ÜÀíÆ÷¿´µ½ÓÐÒ»¸öÒþ²Ø´°¿ÚµÄCMD½ø³Ì
-ÓÅµã:ÕâÊÇÖ±½ÓÔËÓÃÅú´¦ÀíÀ´Òþ²Ø×ÔÉí,Òþ²Ø´°¿ÚËÙ¶È¿ì
-È±µã:ÐèÒªÔÚtempÎÄ¼þ¼Ð½¨Á¢Ò»¸öVBS
-µÚÈý¸ö:
+::ä½ ä¼šåœ¨ä»»åŠ¡ç®¡ç†å™¨çœ‹åˆ°æœ‰ä¸€ä¸ªéšè—çª—å£çš„CMDè¿›ç¨‹
+ä¼˜ç‚¹:è¿™æ˜¯ç›´æŽ¥è¿ç”¨æ‰¹å¤„ç†æ¥éšè—è‡ªèº«,éšè—çª—å£é€Ÿåº¦å¿«
+ç¼ºç‚¹:éœ€è¦åœ¨tempæ–‡ä»¶å¤¹å»ºç«‹ä¸€ä¸ªVBS
+ç¬¬ä¸‰ä¸ª:
 @echo off
 if "%1" == "h" goto begin
 mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
 :begin
 REM
-ÕâºóÃæÐ´ÄãÐèÒªÔËÐÐµÄÃüÁî£¡
+è¿™åŽé¢å†™ä½ éœ€è¦è¿è¡Œçš„å‘½ä»¤ï¼
 ""
-ÓÅµã:ÕâÊÇÖ±½ÓÔËÓÃÅú´¦ÀíÀ´Òþ²Ø×ÔÉí,²»ÐèÒªÔÚtempÎÄ¼þ¼Ð½¨Á¢Ò»¸öVBS
-È±µã:Òþ²Ø´°¿ÚËÙ¶ÈÂý,¸Ð¾õ»áÐ¡¿¨Ò»ÏÂ
-±¾»ú×îµÍÑÓÊ±Åú´¦Àí
-Î¬»¤Í¨µÀÓÃ
-Åú´¦Àí:boot.bat
-ÒÔÏÂÎªÒýÓÃµÄÄÚÈÝ£º
+ä¼˜ç‚¹:è¿™æ˜¯ç›´æŽ¥è¿ç”¨æ‰¹å¤„ç†æ¥éšè—è‡ªèº«,ä¸éœ€è¦åœ¨tempæ–‡ä»¶å¤¹å»ºç«‹ä¸€ä¸ªVBS
+ç¼ºç‚¹:éšè—çª—å£é€Ÿåº¦æ…¢,æ„Ÿè§‰ä¼šå°å¡ä¸€ä¸‹
+æœ¬æœºæœ€ä½Žå»¶æ—¶æ‰¹å¤„ç†
+ç»´æŠ¤é€šé“ç”¨
+æ‰¹å¤„ç†:boot.bat
+ä»¥ä¸‹ä¸ºå¼•ç”¨çš„å†…å®¹ï¼š
 @echo off
 :loop
 ping 127.0.0.1 -n 2 & if not exist \\192.168.0.251\2008boot$ goto loop
 call \\192.168.0.251\2008boot$\boot.bat
 exit
 vbs:boot.vbs
-ÒÔÏÂÎªÒýÓÃµÄÄÚÈÝ£º
+ä»¥ä¸‹ä¸ºå¼•ç”¨çš„å†…å®¹ï¼š
 Set shell = Wscript.createobject("wscript.shell")
 a = shell.run ("boot.bat",0)
-vbsµÄ×÷ÓÃÊÇ·ÀÖ¹Æô¶¯batµÄÊ±ºò³öÏÖºÚ¿ò
-Åú´¦Àí»áÃ¿¸ô´óÔ¼2Ãë¼ì²éÒ»´Î·þÎñÆ÷Ä¿Â¼\\192.168.0.251\2008boot$ £¨Õâ¸ö¸Ä³ÉÄã×Ô¼º µÄ£©£¬Èç¹û´æÔÚ¾ÍÆô¶¯£¬²»´æÔÚ¾Í¼ÌÐø¼ì²é£¬ÖÁµ½´æÔÚÎªÖ¹¡£
-×Ü½áÒ»ÏÂ¿ÉÒÔÖ±½ÓÊ¹ÓÃÅú´¦ÀíÒþ²Ø×ÔÉíºÚ¿ò¼Ó×îµÍÑÓÊ±Æô¶¯
+vbsçš„ä½œç”¨æ˜¯é˜²æ­¢å¯åŠ¨batçš„æ—¶å€™å‡ºçŽ°é»‘æ¡†
+æ‰¹å¤„ç†ä¼šæ¯éš”å¤§çº¦2ç§’æ£€æŸ¥ä¸€æ¬¡æœåŠ¡å™¨ç›®å½•\\192.168.0.251\2008boot$ ï¼ˆè¿™ä¸ªæ”¹æˆä½ è‡ªå·± çš„ï¼‰ï¼Œå¦‚æžœå­˜åœ¨å°±å¯åŠ¨ï¼Œä¸å­˜åœ¨å°±ç»§ç»­æ£€æŸ¥ï¼Œè‡³åˆ°å­˜åœ¨ä¸ºæ­¢ã€‚
+æ€»ç»“ä¸€ä¸‹å¯ä»¥ç›´æŽ¥ä½¿ç”¨æ‰¹å¤„ç†éšè—è‡ªèº«é»‘æ¡†åŠ æœ€ä½Žå»¶æ—¶å¯åŠ¨
 @echo off
 if "%1" neq "Orz" (
 &gt;"%temp%\tmp.vbs" echo set WshShell = WScript.CreateObject^(^"WScript.Shell^"^)
@@ -52,7 +52,7 @@ if "%1" neq "Orz" (
 start /d "%temp%" tmp.vbs"
 exit
 )
-::Åú´¦Àí´úÂë¿ªÊ¼
+::æ‰¹å¤„ç†ä»£ç å¼€å§‹
 @echo off
 :loop
 ping 127.0.0.1 -n 2 & if not exist \\192.168.0.251\2008boot$ goto loop

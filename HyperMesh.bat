@@ -105,21 +105,21 @@ set full_path=%~2
 set file_path=%1
 @rem Define the File Name without Extension
 set file_name=%~nx1
-@echo.%DATE%%TIME%: ¶¨ÒåÊäÈëÎÄ¼þ: gemotry_file=%full_path:\=/%/%file_name%>> log.txt 
+@echo.%DATE%%TIME%: å®šä¹‰è¾“å…¥æ–‡ä»¶: gemotry_file=%full_path:\=/%/%file_name%>> log.txt 
 set gemotry_file=%full_path:\=/%/%file_name%
 @rem Define the HM TCL File
 set hm_tcl_file=hm_tcl_%file_name%
-@echo.%DATE%%TIME%: µ¼³öÎÄ¼þµÄÈ«Â·¾¶ÃûÎª: %full_path%>> log.txt
-@echo.%DATE%%TIME%: ½«ÊäÈëÎÄ¼þ×ª»»ÎªUNIXÂ·¾¶: hm_tcl_file=hm_tcl_%~n1>> log.txt
+@echo.%DATE%%TIME%: å¯¼å‡ºæ–‡ä»¶å…¨è·¯å¾„åä¸º: %full_path%>> log.txt
+@echo.%DATE%%TIME%: å°†è¾“å…¥æ–‡ä»¶è½¬æ¢ä¸ºUNIXè·¯å¾„: hm_tcl_file=hm_tcl_%~n1>> log.txt
 @rem Change the CAD Full Path Directory to UNIX-like pattern - from \ to /
 set file_path_unix=%full_path%
 set "file_path_unix=%file_path_unix:\=/%"
 echo UNIX_FULL_PATH: %file_path_unix%
-@echo.%DATE%%TIME%: ´´½¨TCLÎÄ¼þ: hm_tcl_file=hm_tcl_%~n1>> log.txt
+@echo.%DATE%%TIME%: åˆ›å»ºTCLæ–‡ä»¶: hm_tcl_file=hm_tcl_%~n1>> log.txt
 @rem Define the HM TCL File
 rem set hm_tcl_file=hm_tcl_%file_name%
 set hm_tcl_file=hm_tcl_%~n1
-@echo.%DATE%%TIME%: ¼ì²éµ¼³öµÄÎÄ¼þÖÐÊÇ·ñÓÐhmÎÄ¼þ: %hm_count%>> log.txt
+@echo.%DATE%%TIME%: æ£€æŸ¥å¯¼å‡ºçš„æ–‡ä»¶ä¸­æ˜¯å¦æœ‰hmæ–‡ä»¶: %hm_count%>> log.txt
 @rem Check the # of HM file in the CAD Full Path Directory
 cd /d %full_path%
 dir /b /a-d *.hm |find /c "hm" > %full_path%\hm_count.txt
@@ -129,14 +129,14 @@ echo HM_COUNT: %hm_count%
 @rem List all the HM Files less the newly created HM Files and saved it in a new File hm_part.txt
 cd /d %full_path%
 dir /b /a-d *.hm |find /v "%file_name%" > %full_path%\hm_parts.txt
-@echo.%DATE%%TIME%: ½«ÊäÈë¶ÔÏóÐÅÏ¢Ð´ÈëTCL ÎÄ¼þ: %full_path%\%hm_tcl_file%.tcl>> %working_dir%\log.txt
+@echo.%DATE%%TIME%: å°†è¾“å…¥å¯¹è±¡ä¿¡æ¯å†™å…¥TCL æ–‡ä»¶: %full_path%\%hm_tcl_file%.tcl>> %working_dir%\log.txt
 echo wm attributes . -topmost 1 >> %full_path%\%hm_tcl_file%.tcl
 echo wm attributes . -topmost 0 >> %full_path%\%hm_tcl_file%.tcl
 rem echo set ::HM_Framework::Settings::Export::FE_singleFile {%gemotry_file%}>> %full_path%\%hm_tcl_file%.tcl
 rem echo set ::HM_Framework::Settings::Export::FE_singleFile {gemotry_file}
 rem echo *feinputwithdata2 "#Detect" "%gemotry_file%" 1 0 -0.01 0 0 1 0 1 0 >> %full_path%\%hm_tcl_file%.tcl
 rem echo *feinputwithdata2 "#Detect" "%gemotry_file%" 1 0 -0.01 0 0 1 0 1 0
-@echo.%DATE%%TIME%: ¼ì²é²¢×Ô¶¯´´½¨hmÎÄ¼þ: if hm_count=1£¨hm_file=%~2\%~3_%~4_assy.hm£©else (hm_file=%~2\%~3_%~4.hm£©>> %working_dir%\log.txt
+@echo.%DATE%%TIME%: æ£€æŸ¥å¹¶è‡ªåŠ¨åˆ›å»ºhmæ–‡ä»¶: if hm_count=1ï¼ˆhm_file=%~2\%~3_%~4_assy.hmï¼‰else (hm_file=%~2\%~3_%~4.hmï¼‰>> %working_dir%\log.txt
 if %hm_count% GTR 1 (
 echo HM Count Greater than 1
 set hm_file=%~2\%~3_%~4_assy.hm
@@ -151,12 +151,12 @@ echo set ::HM_Framework::Settings::Export::FE_singleFile {%gemotry_file%}
 echo *feinputwithdata2 "#Detect" "%gemotry_file%" 1 0 -0.01 0 0 1 0 1 0 >> %full_path%\%hm_tcl_file%.tcl
 echo *feinputwithdata2 "#Detect" "%gemotry_file%" 1 0 -0.01 0 0 1 0 1 0
 )
-@echo.%DATE%%TIME%: ½«hmÎÄ¼þ¸ÄÎªUNIXÂ·¾¶: "hm_file=%hm_file:\=/%">> %working_dir%\log.txt
+@echo.%DATE%%TIME%: å°†hmæ–‡ä»¶æ”¹ä¸ºUNIXè·¯å¾„: "hm_file=%hm_file:\=/%">> %working_dir%\log.txt
 set "hm_file=%hm_file:\=/%"
 echo *writefile "%hm_file%" 1 >> %full_path%\%hm_tcl_file%.tcl
 echo *readfile "%hm_file%" >> %full_path%\%hm_tcl_file%.tcl
 for /f "delims= tokens=*" %%i in (%full_path%\hm_parts.txt) do echo *mergefile "%file_path_unix%/%%i" 1 1 >> %full_path%\%hm_tcl_file%.tcl
-@echo.%DATE%%TIME%: µ÷ÓÃHyperMesh: call "D:\HyperWorks13\hm\bin\win64\hmopengl.exe"   -tcl %file_path_unix%/%hm_tcl_file%.tcl>> %working_dir%\log.txt
+@echo.%DATE%%TIME%: è°ƒç”¨HyperMesh: call "D:\HyperWorks13\hm\bin\win64\hmopengl.exe"   -tcl %file_path_unix%/%hm_tcl_file%.tcl>> %working_dir%\log.txt
 call "D:\HyperWorks13\hm\bin\win64\hmopengl.exe"   -tcl %file_path_unix%/%hm_tcl_file%.tcl
 set /A progress=1
 goto RUN
@@ -170,7 +170,7 @@ if not errorlevel 1 (goto SUCCESS) else (goto EOF)
 :SUCCESS
 @echo.%DATE%%TIME% EXIT 0
 @echo.%DATE%%TIME% EXIT 0>>%working_dir%\log.txt
-@echo.%DATE%%TIME% ¿ªÊ¼×ªJT>>%working_dir%\log.txt
+@echo.%DATE%%TIME% å¼€å§‹è½¬JT>>%working_dir%\log.txt
 @echo.%DATE%%TIME% call "D:\Siemens\TC4S_Script\solver2jt.bat" %full_path%\%~3_%~4.inp>>%working_dir%\log.txt
 call "D:\Siemens\TC4S_Script\solver2jt.bat" %full_path%\%~3_%~4.inp
 EXIT 0
